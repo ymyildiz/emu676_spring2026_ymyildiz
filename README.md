@@ -1,6 +1,9 @@
 # Electric Vehicle Routing Problem with Time Windows, Partial Recharging and Driver Rest (E-VRPTW-PR-DR) Project
 This repository is specified for the Term Project in the scope of EMU 676 Optimization Models and Algorithms in Transportation and Distribution, Spring 2026, and contains the implementation files for the **(E-VRPTW-PR-DR)**.
 
+Author: Yiğit Muzaffer YILDIZ
+
+
 The project includes two solution approaches:
 
 1. **MILP / MIP exact model** implemented in Python by Gurobi
