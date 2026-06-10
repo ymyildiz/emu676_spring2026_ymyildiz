@@ -427,236 +427,32 @@ Kisit Kontrolu:
 
 ## Example 1: Solve Small Instance with MILP
 
-First, open `math_model.py` and make sure that the last line is:
-
-```python
-model = solve_evrptw('c101C5.txt')
-```
-
-Then run:
-
-```bash
-python math_model.py
-```
 
 ## Example 2: Solve Larger Instance with MILP
-
-Open `math_model.py` and change the last line to:
-
-```python
-model = solve_evrptw('c106C15.txt')
-```
-
-Then run:
-
-```bash
-python math_model.py
-```
 
 For larger instances, the MILP model may take longer or may not prove optimality within the time limit.
 
 ## Example 3: Solve Small Instance with ALNS
 
-Run:
-
-```bash
-python heuristic.py c101C5.txt
-```
 
 ## Example 4: Solve Larger Instance with ALNS
 
-Run:
-
-```bash
-python heuristic.py c106C15.txt
-```
 
 ---
 
-# 4. Recommended Workflow
 
-A recommended workflow is:
-
-1. Run the MILP model on a small instance.
-2. Use the MILP result as an optimal benchmark.
-3. Run the ALNS heuristic on the same small instance.
-4. Compare the ALNS result with the MILP optimum.
-5. Run the ALNS heuristic on larger instances.
-6. Report objective value, number of vehicles, total distance, CPU time, and solution feasibility.
-
-For example:
-
-```bash
-python heuristic.py c101C5.txt
-python heuristic.py c106C15.txt
-```
-
----
-
-# 5. Notes on Objective Function
-
-Both codes use the following objective structure:
-
-```text
-Objective = 100 × number of vehicles + total travel distance
-```
-
-Therefore, the model first penalizes the use of additional vehicles and then considers the travelled distance.
-
-For example, if a solution uses 3 vehicles and has total distance 317.6815, then:
-
-```text
-Objective = 100 × 3 + 317.6815 = 617.6815
-```
-
----
-
-# 6. Notes on Recharging Stations
-
-The ALNS solution representation stores only customer sequences. Recharging stations are not fixed directly by ALNS.
-
-Instead, the DP route evaluator decides:
-
-* whether a station is needed,
-* which station should be visited,
-* how much energy should be charged,
-* whether a driver rest break is required.
-
-This allows the ALNS part to focus on customer ordering, while the DP part handles electric vehicle feasibility.
-
----
-
-# 7. Troubleshooting
-
-## File Not Found Error
-
-If you get an error such as:
-
-```text
-FileNotFoundError: [Errno 2] No such file or directory
-```
-
-check that the `.txt` instance file is in the same folder as the Python file.
-
-For example, this command:
-
-```bash
-python heuristic.py c106C15.txt
-```
-
-requires the following structure:
-
-```text
-.
-├── heuristic.py
-└── c106C15.txt
-```
-
-If your file is in a folder named `data`, use:
-
-```bash
-python heuristic.py data/c106C15.txt
-```
-
-For `math_model.py`, make sure the correct file name is written inside the code:
-
-```python
-model = solve_evrptw('data/c106C15.txt')
-```
-
----
-
-## Gurobi License Error
-
-If `math_model.py` gives a Gurobi license error, check that:
-
-* Gurobi is installed,
-* `gurobipy` is installed,
-* your Gurobi license is active.
-
-You can test Gurobi with:
-
-```bash
-python -c "import gurobipy as gp; print(gp.gurobi.version())"
-```
-
----
-
-## No Feasible Solution Found
-
-If the heuristic prints:
-
-```text
-Feasible cozum bulunamadi.
-```
-
-possible reasons are:
-
-* the instance is too restrictive,
-* the time windows are very tight,
-* battery capacity is too low,
-* the number of iterations is too small,
-* the destroy/repair settings need tuning.
-
-You may try increasing:
-
-```python
-n_iter = 1000
-```
-
-or changing:
-
-```python
-n_remove
-```
-
----
-
-# 8. Reproducibility
-
-The random behavior of the ALNS algorithm is controlled by the `seed` parameter:
-
-```python
-seed = 42
-```
-
-Using the same seed should reproduce the same ALNS run, assuming the same Python version and input file.
-
-To test different random solutions, change the seed value:
-
-```python
-seed = 1
-seed = 2
-seed = 3
-```
-
----
-
-# 9. Output Interpretation
-
-Important values in the output are:
-
-| Output field    | Meaning                             |
-| --------------- | ----------------------------------- |
-| `Objective`     | Total objective value               |
-| `Arac sayisi`   | Number of used vehicles             |
-| `Toplam mesafe` | Total travelled distance            |
-| `tau`           | Arrival time                        |
-| `y_arr`         | Battery level upon arrival          |
-| `y_dep`         | Battery level upon departure        |
-| `charge`        | Amount of energy recharged          |
-| `load`          | Remaining vehicle load              |
-| `D`             | Accumulated continuous driving time |
-| `rest`          | Whether a rest break is taken       |
-
----
-
-# 10. Contact / Project Information
+# 4. Contact / Project Information
 
 This project was developed for:
 
 ```text
 EMU676 Optimization Models and Algorithms in Transportation and Distribution
+```
+
+by:
+
+```text
+Yiğit Muzaffer YILDIZ
 ```
 
 Project topic:
