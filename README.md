@@ -425,17 +425,14 @@ Kisit Kontrolu:
 
 # 3. Example Runs
 
-## Example 1: Solve Small Instance with MILP
+ Example 1: Solve Small Instance with MILP
 
+ Example 2: Solve Larger Instance with MILP
+ (For larger instances, the MILP model may take longer or may not prove optimality within the time limit.)
 
-## Example 2: Solve Larger Instance with MILP
+ Example 3: Solve Small Instance with ALNS
 
-For larger instances, the MILP model may take longer or may not prove optimality within the time limit.
-
-## Example 3: Solve Small Instance with ALNS
-
-
-## Example 4: Solve Larger Instance with ALNS
+ Example 4: Solve Larger Instance with ALNS
 
 
 ---
