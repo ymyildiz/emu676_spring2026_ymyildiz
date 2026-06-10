@@ -451,10 +451,3 @@ by:
 ```text
 Yiğit Muzaffer YILDIZ
 ```
-
-Project topic:
-
-```text
-Electric Vehicle Routing Problem with Time Windows,
-Partial Recharging and Driver Rest Constraints
-```
