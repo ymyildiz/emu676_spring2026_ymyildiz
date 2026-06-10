@@ -1,12 +1,9 @@
-# Electric Vehicle Routing Problem with Time Windows, Partial Recharging and Driver Rest (E-VRPTW-PR-DR)
-This repository is specified for the Term Project in the scope of EMU 676 Optimization Models and Algorithms in Transportation and Distribution, Spring 2026.
-# E-VRPTW-PR-DR Project
-
-This repository contains the implementation files for the **Electric Vehicle Routing Problem with Time Windows, Partial Recharging and Driver Rest Constraints (E-VRPTW-PR-DR)**.
+# Electric Vehicle Routing Problem with Time Windows, Partial Recharging and Driver Rest (E-VRPTW-PR-DR) Project
+This repository is specified for the Term Project in the scope of EMU 676 Optimization Models and Algorithms in Transportation and Distribution, Spring 2026, and contains the implementation files for the **(E-VRPTW-PR-DR)**.
 
 The project includes two solution approaches:
 
-1. **MILP / MIP exact model** implemented with Gurobi
+1. **MILP / MIP exact model** implemented in Python by Gurobi
 2. **Hybrid ALNS + DP metaheuristic** implemented in Python
 
 The objective is to minimize the number of electric vehicles and the total travel distance while satisfying customer time windows, vehicle capacity, battery capacity, partial recharging, and driver rest constraints.
@@ -17,7 +14,7 @@ The objective is to minimize the number of electric vehicles and the total trave
 
 ```text
 .
-├── math_model.py        # MILP model solved with Gurobi
+├── math_model.py        # MILP model to be solved by Gurobi
 ├── heuristic.py         # Hybrid ALNS + DP heuristic
 ├── c101C5.txt           # Example small instance
 ├── c106C15.txt          # Example larger instance
@@ -30,45 +27,21 @@ Additional `.txt` instance files can also be placed in the same folder.
 
 ## Required Software and Packages
 
-The codes are written in Python. The following packages are required:
+The codes are written in Python. The following Python packages are required:
 
 ```text
 numpy
 gurobipy
 ```
 
-The heuristic code only requires:
-
-```text
-numpy
-```
-
-The exact mathematical model requires:
-
-```text
-gurobipy
-```
-
-Therefore, to run `math_model.py`, Gurobi must be installed and a valid Gurobi license must be available.
+To run `math_model.py`, Gurobi must be installed and a valid Gurobi license must be available.
 
 ---
 
 ## Installation
 
 First, clone or download this repository.
-
-Then install the required Python packages:
-
-```bash
-pip install numpy
-```
-
-If you want to run the MILP model, also install Gurobi Python interface:
-
-```bash
-pip install gurobipy
-```
-
+Then install the required Python packages.
 Make sure that Gurobi is correctly installed and licensed before running the exact model.
 
 ---
