@@ -14,11 +14,11 @@ The objective is to minimize the number of electric vehicles and the total trave
 
 ```text
 .
-├── math_model.py        # MILP model to be solved by Gurobi
-├── heuristic.py         # Hybrid ALNS + DP heuristic
+├── README.md
 ├── c101C5.txt           # Example small instance
 ├── c106C15.txt          # Example larger instance
-└── README.md
+├── heuristic.py         # Hybrid ALNS + DP heuristic
+└── math_model.py        # MILP model to be solved by Gurobi
 ```
 
 Additional `.txt` instance files can also be placed in the same folder.
